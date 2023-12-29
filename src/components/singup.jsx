@@ -35,7 +35,7 @@ const SignUp = () => {
         password: '',
         confirmPassword: ''
       });
-      navigate('/home');
+      navigate('/');
     } catch (err) {
       console.error("Firebase Error:", err);
 
@@ -64,7 +64,7 @@ const SignUp = () => {
               Hos KlimatKoll kan du lära dig om <br></br>klimatförändringarna och testa dina kunskaper i vårt
               quiz!
             </p>
-            <img src="./bilder/climate-change.jpg.png" alt="klimatkoll bild" style={{ width: '50%' }} />
+            <img src="./bilder/6776431.png" alt="klimatkoll bild" style={{ width: '50%' }} />
           </Col>
           <Col md={4} className="p-4" style={{ backgroundColor: '#fff', textAlign: 'center' }}>
             <h1 className="fw-normal mb-3 pb-3" style={{ textAlign: 'left' }}>Sign Up</h1>

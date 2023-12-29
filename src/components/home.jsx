@@ -1,18 +1,28 @@
-
 import React from 'react';
-import Innehåll from '../innehåll';
-import NavBar from '../navbar';
+import Innehåll from '../innehållet/innehåll';
+
+import { Outlet, Route, Routes } from 'react-router-dom';
 
 const Home = () => {
-
-
-      return (
-        <>
-        <NavBar />
+  return (
+    <>
+   
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              
+              <Innehåll />
+            </>
+          }
+        />
+      </Routes>
+      <Outlet />
       
-      <Innehåll />
-      </>
-    
+    </>
   );
 };
+
 export default Home;
+

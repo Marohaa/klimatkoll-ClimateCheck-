@@ -7,33 +7,37 @@ import HowToHelp from './howToHelp';
 const Havsnivå = () => {
   return (
     <>
-      <NavBar />
-      <Container className="mt-4 p-2" style={{ backgroundColor: '#F6F6F2', color: 'black', borderRadius: '10px', fontSize: 14, border: 'none' }}>
+     <NavBar />
+      <div className="mt-4 p-2 m-2" style={{ backgroundColor: '#F6F6F2', color: 'black', borderRadius: '10px', fontSize: 14, border: 'none' }}>
         <Row>
           {/* Left part with text */}
           <Col md={12} lg={6} className="p-2">
             <div className='p-2 m-2'>
-              <h1 style={{ fontSize: 34, marginBottom: '20px' }}>Havsnivå</h1>
+              <h1 style={{ fontSize: 34, marginBottom: '20px', color: '#4CAF83' }}>Havsnivå</h1>
               <p>
-              Havsnivån visar hur stora och höga alla våra hav och oceaner som finns på jorden är. Havsnivån har börjat stiga vilket i sin tur leder till att landytan (marken) blir mindre, detta är en effekt av klimatförändringarna. Havnsnivån stiger eftersom vattnets värms upp och varmt vatten har en större volym än kallt vatten. Vattennivån påverkas även av den globala uppvärmningen som leder till att glaciärer och landisar smälter. Vill du läsa mer om temperaturen i luften kan du göra det i vårt avsnitt om global temperatur.
-              </p>
-              <h3 style={{ fontSize: 30, marginBottom: '20px' }}>Varför är Havsnivån viktig?</h3>
-              <p>
-              Havsnivån påverkar alla människor på vår planet. Om havsnivån stiger kommer en del av marken vi lever på hamna under vattnet. Samhällena som bor närmast kusterna kommer tvingas flytta inåt landet eftersom havet stiger och markytan försvinner. Öarna Maldiverna är särskillt utsatta eftersom deras marknivå ligger jäms med dagens havsnivå. Genom att undersöka vad som påverkar havsnivån och hur vi kan hjälpa till att stabilisera den kan vi alla bidra till att skapa ett tryggt och säkert klimat för alla levande varelser på vår planet och skapa en välmående jord!
-              </p>
+              Havsnivån visar hur stora och höga alla våra hav och oceaner som finns på jorden är. Havsnivån har börjat stiga vilket i sin tur leder till att landytan (marken) blir mindre, detta är en effekt av klimatförändringarna.              </p>
+              
+              <p>Havnsnivån stiger eftersom vattnets värms upp och varmt vatten har en större volym än kallt vatten. Vattennivån påverkas även av den globala uppvärmningen som leder till att glaciärer och landisar smälter. Vill du läsa mer om temperaturen i luften kan du göra det i vårt avsnitt om global temperatur.</p>
+              <h3 style={{ fontSize: 30, marginBottom: '20px', color: '#4CAF83' }}>Snabba fakta om havsnivån </h3>
+              <ul>
+        <li>Stiger havsnivån kommer en del av marken vi lever på hamna under vattenytan</li>
+        <li>Samhällena närmast vattnet kommer tvingas flytta inåt landet</li>
+        <li>Öarna Maldiverna är särskilt utsatta</li>
+        <li>Att havsnivån stiger leder till att glaciärer smälter</li>
+      </ul>
             </div>
           </Col>
 
           {/* Right part with an image */}
-          <Col md={12} lg={6} className="p-2">
+          <Col md={12} lg={6} >
             <img
-              src="/bilder/klmat-change-bil-d-1.png"
-              alt="global tempurter Bild"
-              className="img-fluid m-4"
+              src="/bilder/havsnivå.png"
+              alt="enbild på havsnivå Bild"
+              className="img-fluid "
             />
           </Col>
         </Row>
-      </Container>
+      </div>
 
       <Container className="m-2 p-2" style={{ color: '#000' }}>
         <Row className="justify-content-center">
@@ -51,9 +55,14 @@ const Havsnivå = () => {
       </Container>
 
       {/* för att visa filmen från youtube */}
-      <Row className="justify-content-center">
+      <div className='m-2 p-2'>
+        <h2 style={{ fontSize: 30, marginBottom: '20px', color: '#4CAF83' }}>Klimatförändringar på en minut</h2>
+       <p>I filmen berättar Naturvårdsverket om klimatförändringarna. Vad är problemet och varför ska vi bry oss?</p>
+        <Row className="justify-content-center">
+        
         <Col xs={12} md={8} className="p-2">
           <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+            
             <iframe
               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
               src="https://www.youtube.com/embed/H71LG6xgZII"
@@ -64,9 +73,11 @@ const Havsnivå = () => {
           </div>
         </Col>
       </Row>
+      </div>
       <HowToHelp />
     </>
   );
 };
 
 export default Havsnivå;
+

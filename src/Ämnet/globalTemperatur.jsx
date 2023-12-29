@@ -8,29 +8,25 @@ const GlobalTemperatur = () => {
   return (
     <>
       <NavBar />
-      <Container className="mt-4 p-2" style={{ backgroundColor: '#F6F6F2', color: 'black', borderRadius: '10px', fontSize: 14, border: 'none' }}>
+      <div className="mt-4 m-2 p-2" style={{ backgroundColor: '#F6F6F2', color: 'black', borderRadius: '10px', fontSize: 14, border: 'none' }}>
         <Row>
           {/* Left part with text */}
           <Col md={12} lg={6} className="p-2">
             <div className='p-2 m-2'>
-              <h1 style={{ fontSize: 34, marginBottom: '20px' }}>Global temperatur</h1>
+              <h1 style={{ fontSize: 34, marginBottom: '20px', color: '#4CAF83' }}>Global temperatur</h1>
               <p>
-                Global temperatur är den genomsnittliga temperaturen på hela vårt jordklot. När den globala temperaturen
-                ökar visas detta genom ökade klimatförändringar. Koldioxid som vi människor släpper ut genom exempelvis
-                fossila bärnslen som är den störta boven (bensin, dielsel) finns i luften och gör att den globala
-                temperaturen ökar. Den globala temperaturen kan påverkas av många saker, till exempel vi människor genom
-                hur vi lever men också genom naturen med tillexempel vulkanutbrott. För att mäta den globala temperaturen
-                används vanligtvis en termometer.
+              Global temperatur är medelvärdet av temperaturen över hela vår planet. När den stiger leder det till ökade klimatförändringar. Den stora boven här är koldioxid, som släpps ut när vi använder saker som bensin och diesel. Koldioxid stannar i luften och får den globala temperaturen att öka.
               </p>
-              <h3 style={{ fontSize: 30, marginBottom: '20px' }}>Varför är global temperatur viktig?</h3>
-              <p>
-                Den globala temperaturen påverkar alla levande varelser på vår jord, ekosystemen får det svårare att
-                överleva när temperauren ändas. Klimatförändringar, som är kopplade till den globala temperaturen, kan
-                leda till bland annat extrema stormar speciellt i de tropiska områdena, hetta eller kyla och att vattnet
-                i våra hav stiger. Vi har alla ett ansvar att ta hand om vår jord och se till så att naturen mår bra.
-                Detta kan vi göra genom att lära oss om vad som händer med vårt klimat och hur detta visar sig i naturen,
-                då kan vi arbeta tillsammans för att skapa en hållbar och hälsosam planet.
-              </p>
+              <p>Det påverkar oss på många sätt, både hur vi lever och genom naturliga händelser som vulkanutbrott. För att mäta temperaturen används oftast termometrar. Termometrar mäter temperaturen, visar om det är varmt eller kallt.</p>
+              <p>Det finns flera saker att göra för att minska den globala uppvärmningen. Det är saker som att flyga mindre, köra mindre bil, äta mer vegetarisk mat, handla begagnat och sopsortera. Genom att sopsortera kan produkternas material återanvändas vilket kräver mindre energi än att tillverka nytt.  </p>
+              <h3 style={{ fontSize: 30, marginBottom: '20px', color: '#4CAF83' }}>Snabba fakta</h3>
+              <ul>
+        <li>Den globala temperaturen påverkar alla levande varelser och ekosystem på jorden.</li>
+        <li>Ekosystemen står inför utmaningar när temperaturen förändras.</li>
+        <li>Klimatförändringar, kopplade till den globala temperaturen, kan orsaka extrema stormar, särskilt i tropiska områden.</li>
+        <li>Temperaturförändringar och variationer som hetta eller kyla är följder av dessa klimatförändringar.</li>
+        <li>Höjda havsnivåer är en annan möjlig konsekvens av den globala temperaturökningen.</li>
+      </ul>
             </div>
           </Col>
 
@@ -39,11 +35,12 @@ const GlobalTemperatur = () => {
             <img
               src="/bilder/klmat-change-bil-d-1.png"
               alt="global tempurter Bild"
-              className="img-fluid m-4" 
+              className="img-fluid " 
+             
             />
           </Col>
         </Row>
-      </Container>
+      </div>
 
       <Container className="m-2 p-2" style={{ color: '#000' }}>
         <Row className="justify-content-center">
@@ -63,9 +60,14 @@ const GlobalTemperatur = () => {
       </Container>
 
       {/* för att visa filmen från youtube */}
-      <Row className="justify-content-center">
+      <div className='m-2 p-2'>
+        <h2 style={{ fontSize: 30, marginBottom: '20px', color: '#4CAF83' }}>Klimatförändringar på en minut</h2>
+       <p>I filmen berättar Naturvårdsverket om klimatförändringarna. Vad är problemet och varför ska vi bry oss?</p>
+        <Row className="justify-content-center">
+        
         <Col xs={12} md={8} className="p-2">
           <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+            
             <iframe
               style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
               src="https://www.youtube.com/embed/H71LG6xgZII"
@@ -76,6 +78,8 @@ const GlobalTemperatur = () => {
           </div>
         </Col>
       </Row>
+      </div>
+     
       <HowToHelp />
     </>
   );
