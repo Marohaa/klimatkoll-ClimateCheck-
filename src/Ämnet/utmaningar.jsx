@@ -3,7 +3,7 @@ import QuizInnehåll from '../innehållet/quizInnehåll';
 import NavBar from '../navbar';
 import {  Row, Col, Card, Container } from 'react-bootstrap';
 import { FaCheck } from 'react-icons/fa';
-import { useChallenges } from '../components/ChallengesProvider';
+import { useChallenges } from '../userinfo/ChallengesProvider';
 
 const cardsData = [
   {
