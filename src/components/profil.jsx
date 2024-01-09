@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
 import { useChallenges } from './ChallengesProvider';
 import { db } from '../firebase/firebase';
-import { ref, get } from 'firebase/database';
+import { ref, get, set } from 'firebase/database';
 
 
 const Profil = () => {
@@ -19,38 +19,39 @@ const Profil = () => {
   const { checkedChallenges } = useChallenges();
   const [completedChallenges, setCompletedChallenges] = useState([]);
 
+  // Fetch user data and completed challenges on component mount
+   // Fetch user data and completed challenges on component mount
+   
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+    const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
       if (authUser) {
-        getUserData(authUser.uid)
-          .then((userData) => {
-            setUser(userData);
+        try {
+          // Fetch user data
+          const userData = await getUserData(authUser.uid);
+          setUser(userData);
 
-            // Hämta senast sparade bildens URL från localStorage med användarens UID som en del av nyckeln
-            const storedUrl = localStorage.getItem(`profileImageUrl_${authUser.uid}`);
-            if (storedUrl) {
-              setUrl(storedUrl);
-            }
+          // Fetch completed challenges from Realtime Database
+          const userChallengesRef = ref(db, `users/${authUser.uid}/checkedChallenges`);
+          const snapshot = await get(userChallengesRef);
 
-            // Hämta klarade utmaningar från Firebase Realtime Database
-            const userChallengesRef = ref(db, `users/${authUser.uid}/checkedChallenges`);
+          if (snapshot.exists()) {
+            setCompletedChallenges(snapshot.val());
+            console.log('Completed Challenges:', snapshot.val());
+          } else {
+            // Handle the case where there are no completed challenges
+            setCompletedChallenges([]);
+          }
 
-            get(userChallengesRef)
-              .then((snapshot) => {
-                if (snapshot.exists()) {
-                  setCompletedChallenges(snapshot.val());
-                  console.log('Completed Challenges:', snapshot.val());
-                }
-              })
-              .catch((error) => {
-                console.error('Error getting completed challenges:', error);
-              });
-          })
-          .catch((error) => {
-            console.error('Error getting user data:', error);
-          });
+          // Fetch profile image URL directly from Firebase Storage
+          const imageRef = storageRef(storage, `images/${authUser.uid}/profileImage`);
+          const downloadUrl = await getDownloadURL(imageRef);
+          setUrl(downloadUrl);
+        } catch (error) {
+          console.error('Error fetching user data or completed challenges:', error);
+        }
       } else {
         setUser(null);
+        setUrl('/bilder/persona.icon - kopia.png');
       }
     });
 
@@ -58,6 +59,27 @@ const Profil = () => {
       unsubscribe();
     };
   }, []);
+
+ // Count of completed challenges
+ const completedChallengesCount = completedChallenges.length;
+
+ // Function to handle completing challenges
+ const handleChallengeCompletion = async (challengeId) => {
+   try {
+     // Update local state with the new challenge marked as completed
+     setCompletedChallenges((prevChallenges) => [...prevChallenges, challengeId]);
+
+     // Update Realtime Database with the new array of completed challenges
+     const userChallengesRef = ref(db, `users/${auth.currentUser.uid}/checkedChallenges`);
+     const snapshot = await get(userChallengesRef);
+     const currentChallenges = snapshot.val() || [];
+     const updatedChallenges = [...currentChallenges, challengeId];
+
+     await set(userChallengesRef, updatedChallenges);
+   } catch (error) {
+     console.error('Error updating completed challenges:', error);
+   }
+ };
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
@@ -68,22 +90,17 @@ const Profil = () => {
 
   const handleSubmit = async () => {
     try {
-      // Använd användarens UID för att skapa en unik sökväg i Firebase Storage
-      const imageRef = storageRef(storage, `images/${auth.currentUser.uid}/${image.name}`);
-
+      const imageRef = storageRef(storage, `images/${auth.currentUser.uid}/profileImage`);
       await uploadBytes(imageRef, image);
 
       const downloadUrl = await getDownloadURL(imageRef);
 
       setUrl(downloadUrl);
       setImage(null);
-
-      // Spara URL i localStorage med användarens UID som en del av nyckeln
-      localStorage.setItem(`profileImageUrl_${auth.currentUser.uid}`, downloadUrl);
     } catch (error) {
       console.error('Error handling image submission:', error);
     } finally {
-      handleCloseModal(); // Stäng modalen efter att bilden har laddats upp
+      handleCloseModal();
     }
   };
 
@@ -101,10 +118,10 @@ const Profil = () => {
           <h1 style={{ color: '#4CAF83', fontSize: '34px', padding:'20px' }}>Profil</h1>
           <Row>
             <Col md="6" className="mb-2">
-              <div style={{ marginTop: '10px', width: '160px', position: 'relative' }}>
+              <div style={{ marginTop: '10px', width: '160px', position: 'relative', }}>
                 <img
-                   src={url || '/public/bilder/persona.icon.png'} // If `url` is not available, use a default image
-                 
+                   src={url || '/bilder/persona.icon - kopia.png'} // If `url` is not available, use a default image
+                
                   loading="lazy"
                   className="rounded-circle border"
                   style={{
@@ -144,9 +161,9 @@ const Profil = () => {
                   <FontAwesomeIcon icon={faCamera} />
                 </span>
               </div>
-              <Modal show={showModal} onHide={handleCloseModal}>
-                <Modal.Header closeButton>
-                  <Modal.Title>Upload New Image</Modal.Title>
+              <Modal show={showModal} onHide={handleCloseModal} >
+                <Modal.Header closeButton style={{background:'#4CAF83' }}>
+                  <Modal.Title style={{color:'white'}}>Ladda upp en ny bild</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <input type="file" onChange={handleImageChange} accept="image/*" />
@@ -182,10 +199,13 @@ const Profil = () => {
                 </Modal.Footer>
               </Modal>
             </Col>
+           
             <Col md="6">
               {user.email && <p>Din e-post: {user.email}</p>}
               <p>Points: {user.points}</p>
-              <p>Du har klarat {completedChallenges.length} utmaningar </p>
+              <p>Du har klarat {completedChallengesCount} utmaningar </p>
+             
+             
             </Col>
           </Row>
         </div>

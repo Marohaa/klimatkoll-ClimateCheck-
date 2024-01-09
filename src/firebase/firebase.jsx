@@ -28,7 +28,7 @@ const firestore = getFirestore(app);
 const storage = getStorage(app);
 export { analytics, app, authInstance as auth, db, firestore, storageReference as storageRef, uploadBytes };
 
-// Update the function to also save completed challenges
+
 export function updateUserData(uid, email, points, profileImageUrl, completedChallenges) {
   console.log('Saving completed challenges:', completedChallenges);
   set(ref(db, `users/${uid}`), {
