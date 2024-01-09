@@ -10,8 +10,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const getCurrentUser = () => {
-    // Implement your logic to get the authenticated user
-    // For example, if you are using Firebase authentication:
+  
     const user = auth.currentUser;
     return user ? { uid: user.uid } : null;
   };

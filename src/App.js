@@ -1,16 +1,16 @@
 // App.js
 import React from 'react';
 import {  Routes, Route, } from 'react-router-dom'; 
-import Home from './components/home';
-import Login from './components/login';
-import Signup from './components/singup'
+import Home from './userinfo/home';
+import Login from './userinfo/login';
+import Signup from './userinfo/singup'
 import './App.css';
 import Havsnivå from './Ämnet/Havsnivå';
 import GlobalTemperatur from './Ämnet/globalTemperatur';
 import Glaciärer from './Ämnet/Glaciärer';
 import Utmaningar from './Ämnet/utmaningar';
-import Profil from './components/profil';
-import ResetPassword from './components/resetPassword';
+import Profil from './userinfo/profil';
+import ResetPassword from './userinfo/resetPassword';
 const App = () => {
   return (
     <div className='app'>

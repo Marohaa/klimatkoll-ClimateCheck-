@@ -27,6 +27,7 @@ const NavbarProfileImage = ({ userId }) => {
   return (
     <img
       src={url || '/public/bilder/persona.icon.png'}
+      alt="Profilbild"
       className="rounded-circle border"
       height="40px"
       width="40px"

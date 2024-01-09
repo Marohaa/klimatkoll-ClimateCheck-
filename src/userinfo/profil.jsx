@@ -121,7 +121,7 @@ const Profil = () => {
               <div style={{ marginTop: '10px', width: '160px', position: 'relative', }}>
                 <img
                    src={url || '/bilder/persona.icon - kopia.png'} // If `url` is not available, use a default image
-                
+                   alt="Profilbild"
                   loading="lazy"
                   className="rounded-circle border"
                   style={{
@@ -130,7 +130,7 @@ const Profil = () => {
                     transition: 'border 0.3s',
                     width: '170px',
                     height: '170px',
-                  
+                 
                   }}
                   onClick={() => setShowModal(true)}
                   onMouseEnter={(e) => (e.target.style.border = '5px solid #4CAF83')}

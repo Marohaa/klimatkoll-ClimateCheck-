@@ -9,7 +9,7 @@ export const ChallengesProvider = ({ children }) => {
   const [checkedChallenges, setCheckedChallenges] = useState([]);
 
   useEffect(() => {
-    const userId = auth.currentUser?.uid; // Check if auth.currentUser is defined
+    const userId = auth.currentUser?.uid; 
 
     if (userId) {
       // Fetch the checked challenges from Firebase when the component mounts
@@ -44,7 +44,7 @@ export const ChallengesProvider = ({ children }) => {
     setCheckedChallenges(updatedChallenges);
 
     // Uppdatera Firebase Realtime Database
-    const userId = auth.currentUser?.uid; // Check if auth.currentUser is defined
+    const userId = auth.currentUser?.uid; 
     if (userId) {
       const userChallengesRef = ref(db, `users/${userId}/checkedChallenges`);
       set(userChallengesRef, updatedChallenges);
