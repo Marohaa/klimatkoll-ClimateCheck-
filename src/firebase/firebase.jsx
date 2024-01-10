@@ -5,7 +5,7 @@ import { getAuth } from 'firebase/auth';
 import { getDatabase, ref, set, get } from 'firebase/database';
 import { ref as storageReference, uploadBytes } from 'firebase/storage';  
 import { getStorage } from "firebase/storage";
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore} from 'firebase/firestore';
 
 
 
@@ -47,11 +47,7 @@ export const getUserData = (uid) => {
   return get(ref(db, `users/${uid}`)).then((snapshot) => snapshot.val());
 };
 
-export const getAllChallenges = async () => {
-  const challengesCollection = collection(firestore, 'challenges');
-  const challengesSnapshot = await getDocs(challengesCollection);
-  return challengesSnapshot.docs.map(doc => doc.data());
-};
+
 
 export { storage };
 

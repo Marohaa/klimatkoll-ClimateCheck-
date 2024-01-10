@@ -6,22 +6,13 @@ import { ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage
 import { Container, Modal, Button, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCamera } from '@fortawesome/free-solid-svg-icons';
-import { useChallenges } from './ChallengesProvider';
-import { db } from '../firebase/firebase';
-import { ref, get, set } from 'firebase/database';
-
 
 const Profil = () => {
   const [user, setUser] = useState(null);
   const [image, setImage] = useState(null);
   const [url, setUrl] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const { checkedChallenges } = useChallenges();
-  const [completedChallenges, setCompletedChallenges] = useState([]);
 
-  // Fetch user data and completed challenges on component mount
-   // Fetch user data and completed challenges on component mount
-   
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
       if (authUser) {
@@ -30,24 +21,12 @@ const Profil = () => {
           const userData = await getUserData(authUser.uid);
           setUser(userData);
 
-          // Fetch completed challenges from Realtime Database
-          const userChallengesRef = ref(db, `users/${authUser.uid}/checkedChallenges`);
-          const snapshot = await get(userChallengesRef);
-
-          if (snapshot.exists()) {
-            setCompletedChallenges(snapshot.val());
-            console.log('Completed Challenges:', snapshot.val());
-          } else {
-            // Handle the case where there are no completed challenges
-            setCompletedChallenges([]);
-          }
-
           // Fetch profile image URL directly from Firebase Storage
           const imageRef = storageRef(storage, `images/${authUser.uid}/profileImage`);
           const downloadUrl = await getDownloadURL(imageRef);
           setUrl(downloadUrl);
         } catch (error) {
-          console.error('Error fetching user data or completed challenges:', error);
+          console.error('Error fetching user data:', error);
         }
       } else {
         setUser(null);
@@ -59,27 +38,6 @@ const Profil = () => {
       unsubscribe();
     };
   }, []);
-
- // Count of completed challenges
- const completedChallengesCount = completedChallenges.length;
-
- // Function to handle completing challenges
- const handleChallengeCompletion = async (challengeId) => {
-   try {
-     // Update local state with the new challenge marked as completed
-     setCompletedChallenges((prevChallenges) => [...prevChallenges, challengeId]);
-
-     // Update Realtime Database with the new array of completed challenges
-     const userChallengesRef = ref(db, `users/${auth.currentUser.uid}/checkedChallenges`);
-     const snapshot = await get(userChallengesRef);
-     const currentChallenges = snapshot.val() || [];
-     const updatedChallenges = [...currentChallenges, challengeId];
-
-     await set(userChallengesRef, updatedChallenges);
-   } catch (error) {
-     console.error('Error updating completed challenges:', error);
-   }
- };
 
   const handleImageChange = (e) => {
     if (e.target.files[0]) {
@@ -120,8 +78,8 @@ const Profil = () => {
             <Col md="6" className="mb-2">
               <div style={{ marginTop: '10px', width: '160px', position: 'relative', }}>
                 <img
-                   src={url || '/bilder/persona.icon - kopia.png'} // If `url` is not available, use a default image
-                   alt="Profilbild"
+                  src={url || '/bilder/persona.icon - kopia.png'}
+                  alt="Profilbild"
                   loading="lazy"
                   className="rounded-circle border"
                   style={{
@@ -130,7 +88,6 @@ const Profil = () => {
                     transition: 'border 0.3s',
                     width: '170px',
                     height: '170px',
-                 
                   }}
                   onClick={() => setShowModal(true)}
                   onMouseEnter={(e) => (e.target.style.border = '5px solid #4CAF83')}
@@ -199,13 +156,11 @@ const Profil = () => {
                 </Modal.Footer>
               </Modal>
             </Col>
-           
             <Col md="6">
               {user.email && <p>Din e-post: {user.email}</p>}
               <p>Points: {user.points}</p>
-              <p>Du har klarat {completedChallengesCount} utmaningar </p>
-             
-             
+              {/* Här visar vi användarens totala antal klara utmaningar */}
+              <p>Du har klarat {user.completedChallenges || 0} utmaningar</p>
             </Col>
           </Row>
         </div>
