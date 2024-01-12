@@ -160,7 +160,8 @@ const Profil = () => {
               {user.email && <p>Din e-post: {user.email}</p>}
               <p>Points: {user.points}</p>
               {/* Här visar vi användarens totala antal klara utmaningar */}
-              <p>Du har klarat {user.completedChallenges || 0} utmaningar</p>
+              <p>Du har klarat {user.completedChallenges ? user.completedChallenges.length : 0} utmaningar.</p>
+
             </Col>
           </Row>
         </div>

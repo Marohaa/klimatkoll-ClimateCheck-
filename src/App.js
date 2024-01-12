@@ -11,6 +11,8 @@ import Glaciärer from './Ämnet/Glaciärer';
 import Utmaningar from './Ämnet/utmaningar';
 import Profil from './userinfo/profil';
 import ResetPassword from './userinfo/resetPassword';
+import Quiz from './quiz/quiz.jsx';
+import Quizstart from './quiz/quizstart.jsx';
 const App = () => {
   return (
     <div className='app'>
@@ -26,8 +28,9 @@ const App = () => {
         <Route path="/globalTemperatur" element={<GlobalTemperatur />} />
         <Route path="/Havsnivå" element={<Havsnivå />} />
         <Route path="/Glaciärer" element={<Glaciärer />} />
+        <Route path="/Quiz" element={<Quiz />} />
         <Route path="/utmaningar" element={<Utmaningar />} />
-
+        <Route path="/quizstart" element={<Quizstart/>} />
         {/* Additional Nested Routes */}
         <Route path="/utmaningar/globalTemperatur" element={<GlobalTemperatur />} />
         <Route path="/utmaningar/havsnivå" element={<Havsnivå />} />

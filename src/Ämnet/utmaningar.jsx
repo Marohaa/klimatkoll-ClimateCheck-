@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { db, auth } from '../firebase/firebase';
-import { ref, set, onValue, off  } from 'firebase/database';
+import { ref, set, onValue } from 'firebase/database';
 import QuizInnehåll from '../innehållet/quizInnehåll';
 import NavBar from '../navbar';
 import { Row, Col, Card, Container } from 'react-bootstrap';

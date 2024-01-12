@@ -41,7 +41,7 @@ const NavBar = () => {
               <Nav.Link as={Link} to="/globalTemperatur" style={{ color: 'white' }}>Global temperatur</Nav.Link>
               <Nav.Link as={Link} to="/Havsnivå" style={{ color: 'white' }}>Havsnivå</Nav.Link>
               <Nav.Link as={Link} to="/Glaciärer" style={{ color: 'white' }}>Glaciärer</Nav.Link>
-              <Nav.Link href="#" style={{ color: 'white' }}>Quiz</Nav.Link>
+              <Nav.Link as={Link} to="/Quiz" style={{ color: 'white' }}>Quiz</Nav.Link>
               <Nav.Link as={Link} to="/utmaningar"  style={{ color: 'white' }}>Utmaningar</Nav.Link>
             </Nav>
 
