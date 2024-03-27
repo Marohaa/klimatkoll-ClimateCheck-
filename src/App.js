@@ -19,7 +19,7 @@ import Quiz from './quiz/quiz.jsx';
 import SamarbetePage from './samarbetePage.jsx';
 const App = () => {
   const location = useLocation();
-  const routesWithoutNavbarAndFooter = ['/','/login', '/signup'];
+  const routesWithoutNavbarAndFooter = ['login/resetpassword','/login', '/signup', ];
   const showNavBarAndFooter = !routesWithoutNavbarAndFooter.includes(location.pathname);
   return (
     <div className='App' >
@@ -28,7 +28,7 @@ const App = () => {
      
 
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="login/resetpassword" element={<ResetPassword />} />

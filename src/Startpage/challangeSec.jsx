@@ -55,7 +55,7 @@ const ChallangeSec = () => {
             </p>
             <Link to="/Utmaningar">
               <button
-                className="btn btn-secondary btn-lg btn-block fa-lg gradient-custom-2 mb-1"
+                className="btn btn-secondary btn-lg btn-block fa-lg gradient-custom-2 mb-4"
                 style={{
                   backgroundColor: "#F6F6F2",
                   color: "#4CAF83",
