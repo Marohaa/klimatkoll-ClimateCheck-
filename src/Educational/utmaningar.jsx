@@ -72,7 +72,7 @@ const Utmaningar = () => {
       const unsubscribeAuth = auth.onAuthStateChanged((authUser) => {
         if (authUser) {
           setUser(authUser);
-
+  
           const userRef = ref(db, `users/${authUser.uid}`);
           onValue(userRef, (snapshot) => {
             if (snapshot.exists()) {
@@ -85,10 +85,14 @@ const Utmaningar = () => {
           setCheckedChallenges([]);
         }
       });
+  
+      // Return a cleanup function to unsubscribe from the listener
+      return () => unsubscribeAuth();
     };
-
+  
     fetchData();
   }, []);
+  
 
   const handleEmailShare = () => {
     const subject = "KlimatKoll Utmaningar";
