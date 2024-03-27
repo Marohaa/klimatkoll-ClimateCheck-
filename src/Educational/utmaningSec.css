@@ -1,0 +1,24 @@
+
+
+@media screen and (max-width: 800px) {
+    .SecHeading {
+      font-size: 20px;
+    }
+  
+    .SecBody {
+      font-size: 14px;
+    }
+  
+    .col-md-12 {
+      padding-top: 20px; /* Justera padding för mindre utrymme */
+    }
+  
+    .justify-content-center {
+      justify-content: flex-start !important; /* Ändra från centrerad till start */
+    }
+  
+    .align-items-center {
+      align-items: flex-start !important; /* Ändra från centrerad till start */
+    }
+  }
+  

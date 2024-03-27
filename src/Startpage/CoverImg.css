@@ -1,0 +1,24 @@
+@media screen and (max-width: 750px) {
+  .container-fluid .row .col-md-8 {
+    position: relative;
+  }
+
+  .container-fluid .row .col-md-8 .Rubrik {
+    top: 5px !important;
+    left: 5% !important;
+    padding-bottom: 30px;
+  }
+
+  .container-fluid .row .col-md-8 .Body {
+    top: 50px !important;
+    left: 5% !important;
+  }
+
+  .container-fluid .row .col-md-8 .Button {
+    top: 110px !important;
+    left: 5% !important;
+  }
+}
+
+  
+  

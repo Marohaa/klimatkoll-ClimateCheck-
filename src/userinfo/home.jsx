@@ -1,5 +1,5 @@
 import React from 'react';
-import Innehåll from '../innehållet/innehåll';
+import CoverImg from '../Startpage/CoverImg';
 
 import { Outlet, Route, Routes } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const Home = () => {
           element={
             <>
               
-              <Innehåll />
+              <CoverImg />
             </>
           }
         />
