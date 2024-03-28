@@ -10,7 +10,6 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   const getCurrentUser = () => {
-  
     const user = auth.currentUser;
     return user ? { uid: user.uid } : null;
   };
@@ -32,30 +31,31 @@ const NavBar = () => {
               height="55"
               alt="klimatkoll Logo"
               loading="lazy"
-             
             />
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav"  />
-          <Navbar.Collapse id="responsive-navbar-nav"  >
-            <Nav className=" mb-2 mb-lg-0 " style={{  color: 'white',  marginLeft: '20%' }}>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className=" mb-2 mb-lg-0 " style={{ color: 'white', marginLeft: '20%' }}>
               <Nav.Link as={Link} to="/globalTemperatur" style={{ color: 'white' }}>Global temperatur</Nav.Link>
               <Nav.Link as={Link} to="/Havsnivå" style={{ color: 'white' }}>Havsnivå</Nav.Link>
               <Nav.Link as={Link} to="/Glaciärer" style={{ color: 'white' }}>Glaciärer</Nav.Link>
-             
-              <Nav.Link as={Link} to="/utmaningar"  style={{ color: 'white' }}>Utmaningar</Nav.Link>
+              <Nav.Link as={Link} to="/utmaningar" style={{ color: 'white' }}>Utmaningar</Nav.Link>
             </Nav>
 
-            <div  style={{ marginLeft: '20%', color: 'white' }}>
+            {user ? (
               <NavDropdown
                 title={<NavbarProfileImage userId={user?.uid} />}
-                id="navbarDropdownMenuAvatar" className="nav-link"
+                id="navbarDropdownMenuAvatar" className="nav-link" style={{marginLeft: '20%'}}
               >
                 <NavDropdown.Item as={Link} to="/profil" >Min profil</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/login" >
-                  Logga ut</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/login" onClick={() => auth.signOut()}>
+                  Logga ut
+                </NavDropdown.Item>
               </NavDropdown>
-            </div>
-       
+            ) : (
+              <Nav.Link as={Link} to="/login" style={{ marginLeft: '30%', color: 'white', fontWeight:'bold' }}>Logga in</Nav.Link>
+            )}
+
           </Navbar.Collapse>
         </div>
       </Navbar>

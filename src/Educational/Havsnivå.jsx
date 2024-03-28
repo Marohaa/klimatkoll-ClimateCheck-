@@ -35,9 +35,9 @@ const Havsnivå = () => {
                 <div className="container m-2">
                   <div className="row justify-content-center align-items-center">
                     <div className="col-md-10">
-                      <div className="d-flex flex-wrap justify-content-center align-items-center">
+                      <div className="d-flex flex-wrap justify-content-center align-items-center ">
                         <span
-                          className="text-gray p-2 m-2 mb-2"
+                          className="text-gray p-2  "
                           style={{
                             borderRadius: "20px",
                             border: "1px solid #4CAF83",
@@ -47,11 +47,11 @@ const Havsnivå = () => {
                         </span>
 
                         <FaArrowRight
-                          className="ml-2 mr-2"
+                          className="m-3"
                           style={{ color: "#4CAF83" }}
                         />
                         <span
-                          className="text-gray p-2 m-2 mb-2"
+                          className="text-gray p-2  mb-2"
                           style={{
                             borderRadius: "20px",
                             border: "1px solid #4CAF83",
@@ -60,11 +60,11 @@ const Havsnivå = () => {
                           Glaciärsmältning
                         </span>
                         <FaArrowRight
-                          className="ml-2 mr-2"
+                          className="m-3"
                           style={{ color: "#4CAF83" }}
                         />
                         <span
-                          className="text-gray p-2 m-2 mb-2"
+                          className="text-gray p-2  mb-2"
                           style={{
                             borderRadius: "20px",
                             border: "1px solid #4CAF83",
@@ -73,11 +73,11 @@ const Havsnivå = () => {
                           Landisar och istäcken
                         </span>
                         <FaArrowRight
-                          className="ml-2 mr-2"
+                          className="m-3 "
                           style={{ color: "#4CAF83" }}
                         />
                         <span
-                          className="text-gray p-2 m-2 mb-2"
+                          className="text-gray p-2  mb-2"
                           style={{
                             borderRadius: "20px",
                             border: "1px solid #4CAF83",

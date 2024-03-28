@@ -7,7 +7,7 @@ const HomeBar = () => {
       <div className="pt-4"></div>
       <Container className="text-center ">
         <Row  className="g-2 justify-content-center align-items-center" style={{ backgroundolor: "#4CAF83" }} >
-          <Col className="col-md-10 " >
+          <Col md={10} xs={10} className="m-4 p-4">
           <div className="d-flex flex-wrap justify-content-center align-items-center">
             <Card className="p-2"
               style={{

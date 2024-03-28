@@ -1,9 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
-import Jobs from './jobs';
+import Jobs from "./jobs";
 import HomeBar from "./HomeBar";
 import Utbildning from "./Utbildning";
 import ChallangeSec from "./challangeSec";
-import './CoverImg.css';
+import "./CoverImg.css";
 function CoverImg() {
   return (
     <>
@@ -11,7 +11,7 @@ function CoverImg() {
       <div className="container-fluid p-0 position-relative">
         <img src="/bilder/change.png" alt="Cover" className="img-fluid" />
         <div className="row align-items-center position-absolute top-0 start-0 w-100 ">
-          <div className=" col-md-8  p-4" >
+          <div className=" col-md-8  p-4">
             <h1
               className="Rubrik"
               style={{
@@ -21,7 +21,6 @@ function CoverImg() {
                 position: "absolute",
                 top: "150px",
                 left: "5%",
-             
               }}
             >
               Välkommen till Klimatkoll!
@@ -33,7 +32,6 @@ function CoverImg() {
                 position: "absolute",
                 top: "250px",
                 left: "5%",
-               
               }}
             >
               Ta del av en spännande resa in i klimatfrågornas värld
@@ -60,18 +58,25 @@ function CoverImg() {
         </div>
       </div>
 
-      <div className="p-4"></div>
       {/* 4 Images with text */}
       <HomeBar />
 
-      <div className="p-4"></div>
       {/* utblidning section */}
       <Utbildning />
-      <div className="p-4"></div>
+      <div className="p-2"></div>
       {/* the 4 section on startsida */}
+      <hr
+        style={{ margin: "40px auto", width: "80%", borderColor: "#4CAF83" }}
+      />
       <ChallangeSec />
-      <div className="p-4"></div>
-<Jobs />
+      <div className="p-2"></div>
+      <hr
+        style={{ margin: "40px auto", width: "80%", borderColor: "#4CAF83" }}
+      />
+      <Jobs />
+      <hr
+        style={{ margin: "40px auto", width: "80%", borderColor: "#4CAF83" }}
+      />
       <Outlet />
     </>
   );

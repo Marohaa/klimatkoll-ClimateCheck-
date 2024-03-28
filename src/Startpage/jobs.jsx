@@ -5,7 +5,8 @@ import { Container, Card, Row, Col } from "react-bootstrap";
 const jobs = () => {
   return (
     <>
-      <Container className="text-center ">
+    
+      <Container className="text-center " >
         <Row
           className="g-2 justify-content-center align-items-center"
     
