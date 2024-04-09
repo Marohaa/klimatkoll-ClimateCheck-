@@ -3,13 +3,13 @@ import { Row, Col, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 const ChallangeSec = () => {
   return (
-    <Container>
+    <Container >
       <Row
-        className=" align-items-center mb-4"
+        className=" align-items-center m-2 mb-4"
         style={{ border: "1px solid #4CAF83" }}
       >
         
-        <Col md={5}>
+        <Col md={6}>
           <h2
             style={{
               fontSize: "30px",
@@ -25,7 +25,7 @@ const ChallangeSec = () => {
           </p>
           <Link to="/Quiz">
             <button
-              className="btn btn-secondary btn-lg btn-block fa-lg gradient-custom-2 "
+              className="btn btn-secondary btn-lg btn-block fa-lg gradient-custom-2  mb-3"
               style={{
                 backgroundColor: "#4CAF83",
                 color: "#F6F6F2",
@@ -39,15 +39,15 @@ const ChallangeSec = () => {
             </button>
           </Link>
         </Col>
-        <Col md={7} className="p-0">
+        <Col md={6} className="p-0">
           <img src="/bilder/boy.jpg" alt="lyckas" className="img-fluid" />
         </Col>
       </Row>
       <Row
-        className="align-items-center mb-4"
+        className="align-items-center m-2 "
         style={{ border: "1px solid #4CAF83" }}
       >
-        <Col md={7}  xs={12} className="p-0 order-xs-first">
+        <Col md={6}  xs={12} className="p-0 order-xs-first">
           <img src="/bilder/challange.jpg" alt="lyckas" className="img-fluid" />
         </Col>
         <Col md={5} xs={12} className="order-xs-last">
@@ -67,7 +67,7 @@ const ChallangeSec = () => {
           </p>
           <Link to="/Utmaningar">
             <button
-              className="btn btn-secondary btn-lg btn-block fa-lg gradient-custom-2 "
+              className="btn btn-secondary btn-lg btn-block fa-lg gradient-custom-2 mb-3 "
               style={{
                 backgroundColor: "#4CAF83",
                 color: "#F6F6F2",

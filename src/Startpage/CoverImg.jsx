@@ -63,19 +63,19 @@ function CoverImg() {
 
       {/* utblidning section */}
       <Utbildning />
-      <div className="p-2"></div>
+      
       {/* the 4 section on startsida */}
       <hr
-        style={{ margin: "40px auto", width: "80%", borderColor: "#4CAF83" }}
+        style={{ margin: "30px auto", width: "80%", borderColor: "#4CAF83" }}
       />
       <ChallangeSec />
-      <div className="p-2"></div>
+     
       <hr
-        style={{ margin: "40px auto", width: "80%", borderColor: "#4CAF83" }}
+        style={{ margin: "30px auto", width: "80%", borderColor: "#4CAF83" }}
       />
       <Jobs />
       <hr
-        style={{ margin: "40px auto", width: "80%", borderColor: "#4CAF83" }}
+        style={{ margin: "30px auto", width: "80%", borderColor: "#4CAF83" }}
       />
       <Outlet />
     </>

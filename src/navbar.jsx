@@ -5,7 +5,7 @@ import NavbarProfileImage from './NavbarProfileImage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { auth } from './firebase/firebase';
 import './navbar.css';
-
+import Hamburger from 'hamburger-react'
 const NavBar = () => {
   const navigate = useNavigate();
 
