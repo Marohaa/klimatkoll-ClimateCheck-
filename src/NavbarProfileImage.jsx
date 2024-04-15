@@ -17,7 +17,7 @@ const NavbarProfileImage = ({ userId }) => {
         console.error('Error getting profile image URL:', error);
         // Handle the case where the image cannot be fetched or an error occurs
         // Set a default URL or handle it according to your requirements
-        setUrl('/bilder/persona.icon.png');
+        setUrl('/bilder/persona.icon-kopia.png');
       }
     };
 
@@ -26,11 +26,11 @@ const NavbarProfileImage = ({ userId }) => {
 
   return (
     <img
-      src={url || '/public/bilder/persona.icon.png'}
+      src={url || '/public/bilder/persona.icon-kopia.png'}
       alt="Profilbild"
       className="rounded-circle border"
-      height="40px"
-      width="40px"
+      height="35px"
+      width="35px"
       loading="lazy"
     />
   );
