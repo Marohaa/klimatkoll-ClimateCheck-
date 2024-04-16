@@ -48,130 +48,156 @@ const NavBar = () => {
   return (
     <>
       <header>
-      <Navbar
-  collapseOnSelect
-  expand="lg"
-  style={{ backgroundColor: "#4CAF83", color: "white" }}
->
-  <div className="container-fluid d-flex justify-content-between align-items-center">
-    <div>
-      <Navbar.Brand
-        as={Link}
-        to="/home"
-        style={{ color: "white" }}
-        onClick={handleLogoClick}
-      >
-        <img
-          src="bilder/logo-to-klimatkoll.png"
-          height="55"
-          alt="klimatkoll Logo"
-          loading="lazy"
-        />
-      </Navbar.Brand>
-    </div>
-
-    <div>
-      <Nav className="mx-auto d-none d-lg-flex">
-        <NavDropdown
-          title={
-            <span className="dropdown-title" style={{ color: "white" }}>
-              Utbildning
-            </span>
-          }
-          id="collasible-nav-dropdown"
+        <Navbar
+          collapseOnSelect
+          expand="lg"
           style={{ backgroundColor: "#4CAF83", color: "white" }}
-          show={isDropdownOpen} // Show the dropdown based on manually managed state
-          onMouseEnter={handleMouseEnter} // Open dropdown on mouseover
-          onMouseLeave={handleMouseLeave} // Close dropdown on mouse leave
         >
-          <NavDropdown.Item as={Link} to="/globalTemperatur">
-            Global temperatur
-          </NavDropdown.Item>
-          <NavDropdown.Item as={Link} to="/Havsnivå">
-            Havsnivå
-          </NavDropdown.Item>
-          <NavDropdown.Item as={Link} to="/Glaciärer">
-            Glaciärer
-          </NavDropdown.Item>
-        </NavDropdown>
+          <div className="container-fluid d-flex justify-content-between align-items-center">
+            <div>
+              <Navbar.Brand
+                as={Link}
+                to="/home"
+                style={{ color: "white" }}
+                onClick={handleLogoClick}
+              >
+                <img
+                  src="bilder/logo-to-klimatkoll.png"
+                  height="55"
+                  alt="klimatkoll Logo"
+                  loading="lazy"
+                />
+              </Navbar.Brand>
+            </div>
 
-        <ul className="navbar-nav ml-auto" style={{ color: "white" }}>
-          <li className="nav-item">
-            <Link
-              to="/utmaningar"
-              className="nav-link"
-              style={{ color: "white" }}
+            <div>
+              <Nav className="mx-auto d-none d-lg-flex">
+                <NavDropdown
+                  title={
+                    <span className="dropdown-title" style={{ color: "white" }}>
+                      Utbildning
+                    </span>
+                  }
+                  id="collasible-nav-dropdown"
+                  style={{ backgroundColor: "#4CAF83", color: "white" }}
+                  show={isDropdownOpen} // Show the dropdown based on manually managed state
+                  onMouseEnter={handleMouseEnter} // Open dropdown on mouseover
+                  onMouseLeave={handleMouseLeave} // Close dropdown on mouse leave
+                >
+                  <NavDropdown.Item as={Link} to="/globalTemperatur">
+                    Global temperatur
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/Havsnivå">
+                    Havsnivå
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/Glaciärer">
+                    Glaciärer
+                  </NavDropdown.Item>
+                </NavDropdown>
+
+                <ul className="navbar-nav ml-auto" style={{ color: "white" }}>
+                  <li className="nav-item">
+                    <Link
+                      to="/utmaningar"
+                      className="nav-link"
+                      style={{ color: "white" }}
+                    >
+                      Utmaningar
+                    </Link>
+                  </li>
+                </ul>
+              </Nav>
+            </div>
+
+            <div
+              className="d-flex align-items-center"
+              style={{ margin: "7px" }}
             >
-              Utmaningar
-            </Link>
-          </li>
-        </ul>
-      </Nav>
-    </div>
+              {user ? (
+                <NavDropdown
+                  drop="start"
+                  className="no-arrow "
+                  title={
+                    <NavbarProfileImage
+                      userId={user?.uid}
+                      className="m-2 p-2"
+                    />
+                  }
+                  id="basic-nav-dropdown"
+                >
+                  <NavDropdown.Item as={Link} to="/profil">
+                    Min profil
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    as={Link}
+                    to="/login"
+                    onClick={() => auth.signOut()}
+                  >
+                    Logga ut
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <Nav.Link
+                  as={Link}
+                  to="/login"
+                  style={{ padding:'5px',
+                    color: "white",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <FaUserAlt style={{ marginRight: "10px" }} /> Logga in
+                </Nav.Link>
+              )}
 
-    <div className="d-flex align-items-center" style={{margin:'10px', marginRight:'13%'}} >
-      {user ? (
-        <NavDropdown
-          title={<NavbarProfileImage userId={user?.uid} />}
-          id="navbarDropdownMenuAvatar"
-          className="nav-link" 
-        >
-          <NavDropdown.Item as={Link} to="/profil">
-            Min profil
-          </NavDropdown.Item>
-          <NavDropdown.Item
-            as={Link}
-            to="/login"
-            onClick={() => auth.signOut()}
-          >
-            Logga ut
-          </NavDropdown.Item>
-        </NavDropdown>
-      ) : (
-        <Nav.Link
-          as={Link}
-          to="/login"
-          style={{
-            color: "white",
-            display: "flex",
-            alignItems: "center",
-          }}
-        >
-          <FaUserAlt style={{ marginRight: "10px" }} /> Logga in
-        </Nav.Link>
-      )}
-
-      <Navbar.Toggle
-        aria-controls="responsive-navbar-nav"
-        style={{
-          border: "none",
-          backgroundColor: "transparent",
-          outline: "none",
-          cursor: "pointer",
-        }}
-        onClick={handleToggleClick} // Handle toggle click to open modal directly
-      >
-        <BsList size={20} color="white" />
-      </Navbar.Toggle>
-    </div>
-  </div>
-</Navbar>
+              <Navbar.Toggle
+                aria-controls="responsive-navbar-nav"
+                style={{
+                  border: "none",
+                  backgroundColor: "transparent",
+                  outline: "none",
+                  cursor: "pointer",
+                }}
+                onClick={handleToggleClick} // Handle toggle click to open modal directly
+              >
+                <BsList size={20} color="white" />
+              </Navbar.Toggle>
+            </div>
+          </div>
+        </Navbar>
 
         {/* Outlet for nested routes */}
         <Outlet />
         {/* Responsive Modal */}
         <Modal show={showModal} fullscreen>
-          <Modal.Body style={{ textAlign: "center", backgroundColor: "white" }}>
-            <div style={{ position: "absolute", top: "10px", right: "10px" }}>
-              <Button variant="light" onClick={handleModalClose}>
-                <BsX size={20} color="black" />
+          <Modal.Body
+            style={{
+              textAlign: "center",
+              backgroundColor: "white",
+              paddingTop: "10%",
+              fontSize: "18px",
+            }}
+          >
+            <div style={{ position: "absolute", top: "20px", right: "5%" }}>
+              <Button
+                variant="light"
+                onClick={handleModalClose}
+                style={{ border: "none", background: "none" }} // Lägg till CSS-stilar för att ta bort bakgrundsfärg och border
+              >
+                <BsX size={30} color="black" />
               </Button>
             </div>
+
             <div style={{ textAlign: "center" }}>
               <span>Utbildning</span>
               <button
                 className="btn btn-link"
-                style={{ padding: 0, fontSize: "inherit", cursor: "pointer", color: "black" }}
+                style={{
+                  padding: 0,
+                  fontSize: "inherit",
+                  cursor: "pointer",
+                  color: "black",
+                }}
                 onClick={() => setDropdownOpen(!isDropdownOpen)}
               >
                 <SlArrowDown style={{ marginLeft: "10px" }} />
@@ -182,9 +208,13 @@ const NavBar = () => {
                 <li>
                   <Link
                     to="/globalTemperatur"
-                    className="nav-link"
+                    className="nav-link p-1"
                     onClick={handleModalClose}
-                    style={{ display: "block", textAlign: "center", textDecoration: "none" }}
+                    style={{
+                      display: "block",
+                      textAlign: "center",
+                      textDecoration: "none",
+                    }}
                   >
                     Global temperatur
                   </Link>
@@ -192,9 +222,13 @@ const NavBar = () => {
                 <li>
                   <Link
                     to="/Havsnivå"
-                    className="nav-link"
+                    className="nav-link p-1"
                     onClick={handleModalClose}
-                    style={{ display: "block", textAlign: "center", textDecoration: "none" }}
+                    style={{
+                      display: "block",
+                      textAlign: "center",
+                      textDecoration: "none",
+                    }}
                   >
                     Havsnivå
                   </Link>
@@ -202,9 +236,13 @@ const NavBar = () => {
                 <li>
                   <Link
                     to="/Glaciärer"
-                    className="nav-link"
+                    className="nav-link p-1"
                     onClick={handleModalClose}
-                    style={{ display: "block", textAlign: "center", textDecoration: "none" }}
+                    style={{
+                      display: "block",
+                      textAlign: "center",
+                      textDecoration: "none",
+                    }}
                   >
                     Glaciärer
                   </Link>
@@ -215,7 +253,12 @@ const NavBar = () => {
               to="/utmaningar"
               className="nav-link"
               onClick={handleModalClose}
-              style={{ display: "block", textAlign: "center", textDecoration: "none", marginRight: "20px" }}
+              style={{
+                display: "block",
+                textAlign: "center",
+                textDecoration: "none",
+                marginRight: "20px",
+              }}
             >
               Utmaningar
             </Link>
@@ -227,6 +270,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-
-

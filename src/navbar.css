@@ -1,3 +1,7 @@
 .nav-link::after {
     display: none;
    }
+   .no-arrow::after {
+    display: none !important; /* Dölj pilen */
+  }
+  
