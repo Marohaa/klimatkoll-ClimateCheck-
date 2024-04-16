@@ -71,7 +71,7 @@ const NavBar = () => {
             </div>
 
             <div>
-              <Nav className="mx-auto d-none d-lg-flex">
+              <Nav className="mx-auto d-none d-lg-flex ">
                 <NavDropdown
                   title={
                     <span className="dropdown-title" style={{ color: "white" }}>
@@ -79,7 +79,7 @@ const NavBar = () => {
                     </span>
                   }
                   id="collasible-nav-dropdown"
-                  style={{ backgroundColor: "#4CAF83", color: "white" }}
+                  style={{ backgroundColor: "#4CAF83", color: "white", fontWeight:'bold' }}
                   show={isDropdownOpen} // Show the dropdown based on manually managed state
                   onMouseEnter={handleMouseEnter} // Open dropdown on mouseover
                   onMouseLeave={handleMouseLeave} // Close dropdown on mouse leave
@@ -95,7 +95,7 @@ const NavBar = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                <ul className="navbar-nav ml-auto" style={{ color: "white" }}>
+                <ul className="navbar-nav ml-auto" style={{ color: "white",fontWeight:'bold' }}>
                   <li className="nav-item">
                     <Link
                       to="/utmaningar"
@@ -103,6 +103,28 @@ const NavBar = () => {
                       style={{ color: "white" }}
                     >
                       Utmaningar
+                    </Link>
+                  </li>
+                </ul>
+                <ul className="navbar-nav ml-auto" style={{ color: "white",fontWeight:'bold' }}>
+                  <li className="nav-item">
+                    <Link
+                      to="/om oss"
+                      className="nav-link"
+                      style={{ color: "white" }}
+                    >
+                      Om oss
+                    </Link>
+                  </li>
+                </ul>
+                <ul className="navbar-nav ml-auto" style={{ color: "white", fontWeight:'bold' }}>
+                  <li className="nav-item">
+                    <Link
+                      to="/kontakt"
+                      className="nav-link"
+                      style={{ color: "white" }}
+                    >
+                      Kontakt
                     </Link>
                   </li>
                 </ul>
@@ -261,6 +283,32 @@ const NavBar = () => {
               }}
             >
               Utmaningar
+            </Link>
+            <Link
+              to="/om oss"
+              className="nav-link"
+              onClick={handleModalClose}
+              style={{
+                display: "block",
+                textAlign: "center",
+                textDecoration: "none",
+                marginRight: "20px",
+              }}
+            >
+              Om oss
+            </Link>
+            <Link
+              to="/kontakt"
+              className="nav-link"
+              onClick={handleModalClose}
+              style={{
+                display: "block",
+                textAlign: "center",
+                textDecoration: "none",
+                marginRight: "20px",
+              }}
+            >
+              Kontakt
             </Link>
           </Modal.Body>
         </Modal>
