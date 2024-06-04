@@ -54,7 +54,7 @@ const ResetPassword = () => {
             {error && <p style={{ color: 'red' }}>{error}</p>}
           </div>
         )}
-        <Link to="/login">Tillbaka till Logga in</Link>
+        <Link to="/login">Tillbaka till Logga in sidan</Link>
       </div>
     </div>
   );

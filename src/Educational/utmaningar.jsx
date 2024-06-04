@@ -107,9 +107,10 @@ const Utmaningar = () => {
     <>
    
       <div className="m-2 p-2 mt-4">
-        <h1 style={{ color: "#4CAF83", fontSize: "34px" }}>
-          KlimatKoll utmaningar
-        </h1>
+      <h1 style={{ color: "#4CAF83", fontSize: "34px", fontWeight: "bold", textAlign: "center" }}>
+  KlimatKoll utmaningar
+</h1>
+
         <p className="pt-2">
           Här hittar du utmaningar för att bidra till en bättre miljö! Försök
           checka av så många du kan.

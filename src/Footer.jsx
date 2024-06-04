@@ -30,7 +30,7 @@ const Footer = () => {
           </div>
           <div className="col-md-4">
             {/* Andra kolumnen */}
-            <h5>Våra aktiviteter</h5>
+            <h5>Aktiviteter</h5>
             <ul className="list-unstyled">
             <Link to="/utmaningar"   style={{ textDecoration: 'none',color:'white' }}>  <li>Utamningar</li></Link> 
             
@@ -38,11 +38,11 @@ const Footer = () => {
           </div>
           <div className="col-md-4">
             {/* Tredje kolumnen */}
-            <h5>KlimatKoll</h5>
+            <h5>Om KlimatKoll</h5>
             <ul className="list-unstyled">
             <Link to="/om oss"   style={{ textDecoration: 'none',color:'white' }}>  <li>Om oss</li></Link> 
               <Link to="/kontakt"   style={{ textDecoration: 'none',color:'white' }}>  <li>Kontakt</li></Link> 
-              <Link to="/samarbetepage"   style={{ textDecoration: 'none',color:'white' }}>  <li>KlimatKoll samarbeta</li></Link> 
+              <Link to="/samarbetepage"   style={{ textDecoration: 'none',color:'white' }}>  <li>KlimatKoll partner</li></Link> 
             </ul>
           </div>
         </div>

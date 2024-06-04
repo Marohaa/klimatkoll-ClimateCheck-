@@ -53,7 +53,7 @@ const NavBar = () => {
           expand="lg"
           style={{ backgroundColor: "#4CAF83", color: "white" }}
         >
-          <div className="container-fluid d-flex justify-content-between align-items-center">
+          <div className="container-fluid d-flex justify-content-between align-items-center p-3">
             <div>
               <Navbar.Brand
                 as={Link}
@@ -63,7 +63,7 @@ const NavBar = () => {
               >
                 <img
                   src="bilder/logo-to-klimatkoll.png"
-                  height="55"
+                  height="60"
                   alt="klimatkoll Logo"
                   loading="lazy"
                 />
@@ -72,18 +72,34 @@ const NavBar = () => {
 
             <div>
               <Nav className="mx-auto d-none d-lg-flex ">
-                <NavDropdown
-                  title={
-                    <span className="dropdown-title" style={{ color: "white" }}>
-                      Utbildning
-                    </span>
-                  }
-                  id="collasible-nav-dropdown"
-                  style={{ backgroundColor: "#4CAF83", color: "white", fontWeight:'bold' }}
-                  show={isDropdownOpen} // Show the dropdown based on manually managed state
-                  onMouseEnter={handleMouseEnter} // Open dropdown on mouseover
-                  onMouseLeave={handleMouseLeave} // Close dropdown on mouse leave
-                >
+              <NavDropdown
+  title={
+    <div className="dropdown-title" style={{ color: "white" }}>
+      Utbildning
+      <button
+        className="btn btn-link" 
+        style={{
+         
+          padding: 0,
+          fontSize: "inherit",
+          cursor: "pointer",
+          color: "white",
+          marginLeft: "3px", // Flytta pilen från titeln
+        }}
+        onClick={() => setDropdownOpen(!isDropdownOpen)}
+      >
+        <SlArrowDown />
+      </button>
+    </div>
+  }
+  id="collasible-nav-dropdown"
+  style={{ backgroundColor: "#4CAF83", color: "white", fontWeight: "bold" }}
+  show={isDropdownOpen} // Show the dropdown based on manually managed state
+  onMouseEnter={handleMouseEnter} // Open dropdown on mouseover
+  onMouseLeave={handleMouseLeave} // Close dropdown on mouse leave
+>
+ 
+
                   <NavDropdown.Item as={Link} to="/globalTemperatur">
                     Global temperatur
                   </NavDropdown.Item>
