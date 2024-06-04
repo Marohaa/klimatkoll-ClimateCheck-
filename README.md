@@ -1,7 +1,13 @@
-Startar utvecklingsservern: npm start
+Startar utvecklingsservern: 
 
-Bygger applikationen för produktion till build-mappen: npm run build
+npm start
 
-Startar testkörningen i watch-läge: npm test
+Bygger applikationen för produktion till build-mappen: 
+
+npm run build
+
+Startar testkörningen i watch-läge: 
+
+npm test
 
  
