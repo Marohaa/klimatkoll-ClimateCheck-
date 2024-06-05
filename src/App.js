@@ -1,9 +1,9 @@
 // App.js
 import React from 'react';
-import {  Routes, Route, useLocation } from 'react-router-dom'; 
+import { Routes, Route, useLocation } from 'react-router-dom'; 
 import Home from './userinfo/home';
 import Login from './userinfo/login';
-import Signup from './userinfo/singup'
+import Signup from './userinfo/singup';
 import './App.css';
 import Havsnivå from './Educational/Havsnivå';
 import GlobalTemperatur from './Educational/globalTemperatur';
@@ -17,16 +17,22 @@ import ContactPage from './ContactPage.jsx';
 import AboutPage from './AboutPage.jsx';
 import Quiz from './quiz/quiz.jsx';
 import SamarbetePage from './samarbetePage.jsx';
+
 const App = () => {
+    // Visa inte footer och header i dessa sidor
   const location = useLocation();
-  const normalizedPathname = location.pathname.toLowerCase();
-  const routesWithoutNavbarAndFooter = ['/login/resetpassword', '/login', '/signup'];
-  const showNavBarAndFooter = !routesWithoutNavbarAndFooter.includes(location.pathname);
-  console.log("Current Path:", normalizedPathname);
+  const noNavAndFooterRoutes = ['/login', '/signup', '/login/resetpassword'];
+
+  // Kontrollera den aktuella sökvägen
+  console.log('Current pathname:', location.pathname);
+
+  // Använd startsWith för att matcha del av sökvägen
+  const showNavAndFooter = !noNavAndFooterRoutes.some(route => location.pathname.startsWith(route));
+
   return (
     <div className='App'>
-      {showNavBarAndFooter && <NavBar />}
-
+      {showNavAndFooter && <NavBar />}
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -42,13 +48,9 @@ const App = () => {
         <Route path="/samarbetepage" element={<SamarbetePage />} />
         <Route path="/kontakt" element={<ContactPage />} />
         <Route path="/om oss" element={<AboutPage />} />
-        {/* Additional Nested Routes */}
-        <Route path="/utmaningar/globalTemperatur" element={<GlobalTemperatur />} />
-        <Route path="/utmaningar/havsnivå" element={<Havsnivå />} />
-        <Route path="/utmaningar/glaciärer" element={<Glaciärer />} />
       </Routes>
 
-      {showNavBarAndFooter && <Footer />}
+      {showNavAndFooter && <Footer />}
     </div>
   );
 };

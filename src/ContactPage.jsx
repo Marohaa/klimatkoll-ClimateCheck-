@@ -2,7 +2,7 @@ import React from "react";
 const ContactPage = () => {
   return (
    
-     <div className="container-fluid">
+     <div className="container-fluid"  style={{ height: "100vh" }}>
      <div className="row justify-content-center">
        <div className="col-md-10 p-4 text-left">
          <h1 className="text-center mb-4" style={{ fontWeight: "bold", fontSize: 34, color: "#4CAF83" }}>

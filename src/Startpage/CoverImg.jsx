@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import {  Outlet } from "react-router-dom";
 import Jobs from "./jobs";
 import HomeBar from "./HomeBar";
 import Utbildning from "./Utbildning";
@@ -37,23 +37,7 @@ function CoverImg() {
               Ta del av en spännande resa in i klimatfrågornas värld
             </p>
 
-            <Link to="/Utbildning">
-              <button
-                className="btn btn-secondary btn-lg btn-block fa-lg gradient-custom-2 mb-1 Button"
-                style={{
-                  backgroundColor: "#4CAF83",
-                  color: "#F6F6F2",
-                  borderRadius: "20px",
-                  fontSize: "1rem",
-                  border: "none",
-                  position: "absolute",
-                  top: "350px",
-                  left: "5%",
-                }}
-              >
-                Utbildning
-              </button>
-            </Link>
+        
           </div>
         </div>
       </div>

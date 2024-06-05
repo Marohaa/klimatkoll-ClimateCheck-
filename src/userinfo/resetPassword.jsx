@@ -9,6 +9,10 @@ const ResetPassword = () => {
   const [error, setError] = useState('');
 
   const handleResetPassword = async () => {
+    if (!email) {
+      setError("E-postadress är obligatorisk.");
+      return;
+    }
     try {
       await sendPasswordResetEmail(authInstance, email);
       setResetRequested(true);
@@ -18,10 +22,9 @@ const ResetPassword = () => {
       setError(err.code === "auth/user-not-found" ? "Användaren finns inte" : err.message);
     }
   };
-  
 
   return (
-<div className="container d-flex align-items-center justify-content-center vh-100">
+    <div className="container d-flex align-items-center justify-content-center vh-100">
       <div className="text-center">
         <h1>Återställ lösenord</h1>
         {resetRequested ? (
@@ -47,7 +50,6 @@ const ResetPassword = () => {
               style={{ backgroundColor: '#4CAF83', color: 'white', borderRadius: '20px', fontSize: 16, border: 'none' }}
               type="button"
               onClick={handleResetPassword}
-
             >
               Återställ lösenord
             </button>

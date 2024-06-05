@@ -64,10 +64,10 @@ const SignUp = () => {
               Hos KlimatKoll kan du lära dig om <br></br>klimatförändringarna och testa dina kunskaper i vårt
               quiz!
             </p>
-            <img src="./bilder/6776431.png" alt="klimatkoll bild" style={{ width: '45%' }} />
+            <img src="./bilder/6776431.png" alt="klimatkoll bild" style={{ width: '40%' }} />
           </Col>
           <Col md={4} className="p-4" style={{ backgroundColor: '#fff', textAlign: 'center' }}>
-            <h1 className="fw-normal mb-3 pb-3" style={{ textAlign: 'left' }}>Sign Up</h1>
+            <h1 className=" mb-3 pb-3" style={{ textAlign: 'left', fontWeight: "bold", color: '#4CAF83' }}>Sign Up</h1>
             <form onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail" className="form-outline mb-4">
                 <Form.Control

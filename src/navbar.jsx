@@ -53,7 +53,7 @@ const NavBar = () => {
           expand="lg"
           style={{ backgroundColor: "#4CAF83", color: "white" }}
         >
-          <div className="container-fluid d-flex justify-content-between align-items-center p-3">
+          <div className="container-fluid d-flex justify-content-between align-items-center">
             <div>
               <Navbar.Brand
                 as={Link}
@@ -71,35 +71,36 @@ const NavBar = () => {
             </div>
 
             <div>
-              <Nav className="mx-auto d-none d-lg-flex ">
-              <NavDropdown
-  title={
-    <div className="dropdown-title" style={{ color: "white" }}>
-      Utbildning
-      <button
-        className="btn btn-link" 
-        style={{
-         
-          padding: 0,
-          fontSize: "inherit",
-          cursor: "pointer",
-          color: "white",
-          marginLeft: "3px", // Flytta pilen från titeln
-        }}
-        onClick={() => setDropdownOpen(!isDropdownOpen)}
-      >
-        <SlArrowDown />
-      </button>
-    </div>
-  }
-  id="collasible-nav-dropdown"
-  style={{ backgroundColor: "#4CAF83", color: "white", fontWeight: "bold" }}
-  show={isDropdownOpen} // Show the dropdown based on manually managed state
-  onMouseEnter={handleMouseEnter} // Open dropdown on mouseover
-  onMouseLeave={handleMouseLeave} // Close dropdown on mouse leave
->
- 
-
+              <Nav className="mx-auto d-none d-lg-flex p-2 m-3">
+                <NavDropdown
+                  title={
+                    <div className="dropdown-title " style={{ color: "white" }}>
+                      Utbildning
+                      <button
+                        className="btn btn-link"
+                        style={{
+                          padding: 0,
+                          fontSize: "inherit",
+                          cursor: "pointer",
+                          color: "white",
+                          marginLeft: "3px", // Flytta pilen från titeln
+                        }}
+                        onClick={() => setDropdownOpen(!isDropdownOpen)}
+                      >
+                        <SlArrowDown />
+                      </button>
+                    </div>
+                  }
+                  id="collasible-nav-dropdown"
+                  style={{
+                    backgroundColor: "#4CAF83",
+                    color: "white",
+                    fontWeight: "bold",
+                  }}
+                  show={isDropdownOpen} // Show the dropdown based on manually managed state
+                  onMouseEnter={handleMouseEnter} // Open dropdown on mouseover
+                  onMouseLeave={handleMouseLeave} // Close dropdown on mouse leave
+                >
                   <NavDropdown.Item as={Link} to="/globalTemperatur">
                     Global temperatur
                   </NavDropdown.Item>
@@ -111,7 +112,10 @@ const NavBar = () => {
                   </NavDropdown.Item>
                 </NavDropdown>
 
-                <ul className="navbar-nav ml-auto" style={{ color: "white",fontWeight:'bold' }}>
+                <ul
+                  className="navbar-nav ml-auto"
+                  style={{ color: "white", fontWeight: "bold" }}
+                >
                   <li className="nav-item">
                     <Link
                       to="/utmaningar"
@@ -122,7 +126,10 @@ const NavBar = () => {
                     </Link>
                   </li>
                 </ul>
-                <ul className="navbar-nav ml-auto" style={{ color: "white",fontWeight:'bold' }}>
+                <ul
+                  className="navbar-nav ml-auto"
+                  style={{ color: "white", fontWeight: "bold" }}
+                >
                   <li className="nav-item">
                     <Link
                       to="/om oss"
@@ -133,7 +140,10 @@ const NavBar = () => {
                     </Link>
                   </li>
                 </ul>
-                <ul className="navbar-nav ml-auto" style={{ color: "white", fontWeight:'bold' }}>
+                <ul
+                  className="navbar-nav ml-auto"
+                  style={{ color: "white", fontWeight: "bold" }}
+                >
                   <li className="nav-item">
                     <Link
                       to="/kontakt"
@@ -178,7 +188,8 @@ const NavBar = () => {
                 <Nav.Link
                   as={Link}
                   to="/login"
-                  style={{ padding:'5px',
+                  style={{
+                    padding: "5px",
                     color: "white",
                     display: "flex",
                     alignItems: "center",
@@ -220,7 +231,7 @@ const NavBar = () => {
               <Button
                 variant="light"
                 onClick={handleModalClose}
-                style={{ border: "none", background: "none" }} // Lägg till CSS-stilar för att ta bort bakgrundsfärg och border
+                style={{ border: "none", background: "none" }} 
               >
                 <BsX size={30} color="black" />
               </Button>
@@ -231,7 +242,7 @@ const NavBar = () => {
               <button
                 className="btn btn-link"
                 style={{
-                  padding: 0,
+                  padding: '10px',
                   fontSize: "inherit",
                   cursor: "pointer",
                   color: "black",
@@ -289,7 +300,7 @@ const NavBar = () => {
             )}
             <Link
               to="/utmaningar"
-              className="nav-link"
+              className="nav-link pb-2"
               onClick={handleModalClose}
               style={{
                 display: "block",
@@ -302,7 +313,7 @@ const NavBar = () => {
             </Link>
             <Link
               to="/om oss"
-              className="nav-link"
+              className="nav-link pb-2"
               onClick={handleModalClose}
               style={{
                 display: "block",
@@ -315,7 +326,7 @@ const NavBar = () => {
             </Link>
             <Link
               to="/kontakt"
-              className="nav-link"
+              className="nav-link pb-2"
               onClick={handleModalClose}
               style={{
                 display: "block",

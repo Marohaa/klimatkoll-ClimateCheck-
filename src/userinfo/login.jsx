@@ -72,19 +72,20 @@ const Login = () => {
   };
 
   return (
-    <section className="vh-100">
+    <section  >
       <div className="container-fluid">
         <Row>
-          <Col md={8} style={{ backgroundColor: '#4CAF83', textAlign: 'center' }}>
+          <Col md={8} lg={8} style={{ backgroundColor: '#4CAF83', textAlign: 'center' }}>
             <img src="bilder/logo-to-klimatkoll.png" alt="Logo" style={{ maxWidth: '55%', maxHeight: '60%' }} />
             <p style={{ color: 'white', fontSize: 20 }}>
               Hos KlimatKoll kan du lära dig om <br></br>klimatförändringarna och testa dina kunskaper i vårt
               quiz!
             </p>
-            <img src="./bilder/6776431.png" alt="klimatkoll bild" style={{ width: '45%' }} />
+            <img src="./bilder/6776431.png" alt="klimatkoll bild" style={{ width: '40%' }} />
           </Col>
-          <Col md={4} className="p-4" style={{ backgroundColor: '#fff', textAlign: 'center' }}>
-            <h1 className="fw-normal mb-3 pb-3" style={{ textAlign: 'left' }}>Logga in</h1>
+          
+          <Col md={4} lg={4} className="p-4" style={{ backgroundColor: '#fff', textAlign: 'center' }}>
+            <h1 className=" mb-3 pb-3" style={{ textAlign: 'left',   fontWeight: "bold", color: '#4CAF83' }}>Logga in</h1>
             <Form onSubmit={handleSubmit}>
               <Form.Group controlId="formBasicEmail" className="form-outline mb-4">
                 <Form.Control
