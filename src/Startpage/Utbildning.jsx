@@ -1,6 +1,7 @@
 import React from "react";
-import {  Card, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Utbildning = () => {
   const cardData = [
@@ -25,7 +26,6 @@ const Utbildning = () => {
       text: "Effekten av klimatförändringar på glaciärerna",
       link: "/Glaciärer",
     },
-   
   ];
 
   return (
@@ -33,7 +33,7 @@ const Utbildning = () => {
       <Row>
         {cardData.map((card) => (
           <Col key={card.id} md={6} className="mb-4">
-            <a href={card.link} className="text-white text-decoration-none">
+            <Link to={card.link} className="text-white text-decoration-none">
               <Card
                 className="h-100"
                 style={{
@@ -43,7 +43,6 @@ const Utbildning = () => {
                   border: 'none',
                   minHeight: '400px', // Set a minimum height
                   objectFit: 'cover',
-                  
                 }}
               >
                 <Card.Body className="text-white d-flex flex-column justify-content-end">
@@ -51,13 +50,13 @@ const Utbildning = () => {
                   <p className="mb-3" style={{ fontSize: '20px' }}>{card.text} <FaArrowRight /></p>
                 </Card.Body>
               </Card>
-            </a>
+            </Link>
           </Col>
         ))}
       </Row>
     </div>
-    
   );
 };
 
 export default Utbildning;
+
